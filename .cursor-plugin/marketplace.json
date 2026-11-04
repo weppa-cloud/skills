@@ -1,0 +1,13 @@
+{
+  "name": "weppa",
+  "owner": {
+    "name": "Weppa"
+  },
+  "plugins": [
+    {
+      "name": "weppa",
+      "source": "./",
+      "description": "Opera las apps de tu cuenta de Weppa desde tu agente: estado, logs, reinicios, copias y dominio, por el MCP de Weppa."
+    }
+  ]
+}

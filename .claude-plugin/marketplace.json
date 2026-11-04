@@ -1,0 +1,33 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "weppa",
+  "description": "Opera las apps de tu cuenta de Weppa desde tu agente: estado, logs, reinicios, copias y dominio, por el MCP de Weppa.",
+  "owner": {
+    "name": "Weppa",
+    "url": "https://weppa.co"
+  },
+  "plugins": [
+    {
+      "name": "weppa",
+      "source": "./",
+      "description": "Opera las apps de tu cuenta de Weppa desde tu agente: estado, logs, reinicios, copias y dominio, por el MCP de Weppa.",
+      "author": {
+        "name": "Weppa",
+        "url": "https://weppa.co"
+      },
+      "homepage": "https://weppa.co",
+      "repository": "https://github.com/weppa-cloud/skills",
+      "license": "Apache-2.0",
+      "keywords": [
+        "weppa",
+        "mcp",
+        "hosting",
+        "apps",
+        "kubernetes",
+        "odoo",
+        "n8n",
+        "chatwoot"
+      ]
+    }
+  ]
+}

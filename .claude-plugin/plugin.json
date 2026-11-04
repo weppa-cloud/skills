@@ -1,0 +1,33 @@
+{
+  "name": "weppa",
+  "displayName": "Weppa",
+  "version": "0.2.0",
+  "description": "Opera las apps de tu cuenta de Weppa desde tu agente: estado, logs, reinicios, copias y dominio, por el MCP de Weppa.",
+  "author": {
+    "name": "Weppa",
+    "url": "https://weppa.co"
+  },
+  "homepage": "https://weppa.co",
+  "repository": "https://github.com/weppa-cloud/skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "weppa",
+    "mcp",
+    "hosting",
+    "apps",
+    "kubernetes",
+    "odoo",
+    "n8n",
+    "chatwoot"
+  ],
+  "mcpServers": "./.mcp.json",
+  "privacyPolicyUrl": "https://visor.weppa.co/legal/privacy",
+  "termsOfServiceUrl": "https://visor.weppa.co/legal/terms",
+  "metadata": {
+    "skills": {
+      "use-weppa": {
+        "digest": "sha256:24f432eb7eb8044668bac43f3f57bdf965fc9773e3754312d10abe1cfdf6da80"
+      }
+    }
+  }
+}

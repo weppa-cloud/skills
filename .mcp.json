@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "weppa": {
+      "type": "http",
+      "url": "https://mcp.weppa.co/mcp"
+    }
+  }
+}

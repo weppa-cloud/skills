@@ -1,0 +1,20 @@
+{
+  "name": "weppa",
+  "interface": {
+    "displayName": "Weppa"
+  },
+  "plugins": [
+    {
+      "name": "weppa",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/weppa-cloud/skills.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
