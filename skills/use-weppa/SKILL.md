@@ -168,13 +168,12 @@ reintenta. *Permanente*: haz lo que dice el texto. Nunca repitas una llamada má
 
 **Haz solo lo que el dueño pidió**.
 
-**Weppa Site.** Antes de construir, confirma páginas y temas con el dueño (incluidas docs).
-Vista previa: Visor + `check.preview.path` (vence `expiresAt`). «Tu agente publica»:
-solo con `publishDelegation.active: true`, publica tú y da la URL pública, nunca el enlace
-del pedido; espera al navegador y sigue `next`. Nombra cada página nueva o quitada por título
-(quitadas, antes) y si cambia todo (`ownerSummary`). No digas que el dueño revisó.
-`site_publish_not_delegated`: no reintentes; da el enlace del pedido. Raíz de dominio:
-ofrece también `www` con 301 (receta).
+**Site.** Sin carpeta: `weppa_site_source {app}` → `client-upload.cjs --source <carpeta>`. Lee `app-weppa-site-guia`. Sin reconstruir HTML.
+Vista previa: Visor + `check.preview.path`, hasta `expiresAt`. Solo con `publishDelegation.active: true`
+publicas tú: espera al navegador, sigue `next` y da la URL pública; sin permiso, da el pedido.
+Nombra páginas nuevas y quitadas (estas, antes), y cambios globales (`ownerSummary`).
+No digas que el dueño revisó. `site_publish_not_delegated`: no reintentes, da el pedido.
+Dominio raíz: ofrece `www` con 301 (receta).
 
 GA4, GTM, píxel de Meta, Google Ads, Clarity o el chat de Chatwoot: en `site.json.integraciones`
 (guía); no pegues código ni URLs ajenas. Modo directo: Un formulario va al webhook o al WhatsApp que te dé el
