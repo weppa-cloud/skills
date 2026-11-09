@@ -2,7 +2,7 @@
   "$schema": "https://cursor.com/schemas/cursor-plugin/plugin.json",
   "name": "weppa",
   "displayName": "Weppa",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Opera las apps de tu cuenta de Weppa desde tu agente: estado, logs, reinicios, copias y dominio, por el MCP de Weppa.",
   "author": {
     "name": "Weppa",

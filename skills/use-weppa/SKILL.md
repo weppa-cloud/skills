@@ -80,7 +80,7 @@ La etiqueta `appcell.app/recipe` identifica la receta, si existe; sus manifiesto
 | **Restaurar una copia** | Confirma el dueño: `tipo: restore` con «Operar» (`runbook-restore`). Entrega enlace; no fuerces un rechazo del servidor |
 | **Duplicar una app** | Confirma el dueño. En el mismo mensaje del enlace de confirmación, avisa: la copia arranca con correos y tareas activos. `weppa_app_backup {app}` hasta `completed`/`protected`; después `tipo: duplicate`, `punto` vacío (`runbook-duplicate`), y enlace. `duplicate_needs_backup`: copia y reconfirmación del mismo pedido |
 | **Recuperar un sitio, «Usar esta copia»** | Los confirma el dueño en Weppa: reemplazan lo vivo. Dale el enlace y explícale qué cambia |
-| **Borrar una app** | El dueño en Ajustes → Eliminar (`visor.weppa.co/ns/<app>/settings`): destruye app/datos. No escribas un pedido `delete-app`: no existe |
+| **Borrar una app** | Lo dejas listo: el enlace completo `https://visor.weppa.co/ns/<app>/settings` solo en su línea; el dueño confirma en Eliminar (destruye app/datos). No es un hueco. No escribas un pedido `delete-app`: no existe |
 | **Subir de tamaño una app** | Confirma el dueño si cobra. `weppa_app_resize` con cobro queda `pending`; relee. No escribas un pedido `resize`: no existe |
 <!-- capacidades:fin -->
 
@@ -185,7 +185,8 @@ ofrece n8n.
 - Vacía, el runtime va en 0 réplicas: 1 con la primera; 0 sin ninguna o con `paused_all`.
 - Topes (gratis · pagada): 3 · 20 automatizaciones, 2 · 10 con horario, cada 15 · 5 min o más,
   1.000 · 10.000 ejecuciones al mes, 30 · 300 s cada una. Los de su cuenta, en `automations-definition`.
-- Otra app: `weppa_automations_connect` deja el pedido y el dueño la conecta; un Site (`trigger.site`) lo conecta sin él. Pausas y conexiones son
+- Un Site (`trigger.site`): conéctalo siempre tú con `weppa_automations_connect {app, target: <sitio>, automation}`, sin el dueño;
+  declararlo no lo conecta. Otra app: deja el pedido y el dueño la conecta. Pausas y conexiones son
   gestionadas por el visor: el servidor no habilita escribir la etiqueta ni `automations-control`; para reanudar, dale
   `https://visor.weppa.co/ns/<app>/automations`.
   Clave de un servicio (Resend…): `weppa_app_secret_request`.
