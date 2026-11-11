@@ -102,7 +102,7 @@ repositorio.
 - **`npx skills`:** vuelve a correr el comando de arriba, tal cual.
 
 Cada versión del plugin dice qué skill trae: `.claude-plugin/plugin.json` lleva la versión
-(`0.3.7`) y el digest de `skills/use-weppa/SKILL.md` (`sha256:273d8e1968e4b0dd4ae582f85c26aca668b0afcfad4d7acb6cfa6f667ffc9dfa`). Es el mismo digest
+(`0.3.8`) y el digest de `skills/use-weppa/SKILL.md` (`sha256:650ab934a48efd6fc6d49131e86c0345249671154b153e772bbf044c2a7121c8`). Es el mismo digest
 con que el MCP anuncia `skill://use-weppa/SKILL.md`: si coinciden, tienes la misma skill.
 
 ## Prueba rápida
@@ -129,4 +129,4 @@ niega (403) con «Solo mirar», autoriza de nuevo con «Operar».
 
 ## Licencia
 
-[Apache-2.0](LICENSE). Versión 0.3.7.
+[Apache-2.0](LICENSE). Versión 0.3.8.
