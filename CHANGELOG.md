@@ -1,5 +1,9 @@
 # Cambios
 
+## 0.3.9
+
+- Empaquetado: ícono declarado en Codex y Cursor, y el cuadrado de la marca sin esquinas transparentes. La skill no cambia.
+
 ## 0.2.0
 
 - El MCP de Weppa (`https://mcp.weppa.co/mcp`) se conecta por OAuth: el plugin ya no lleva el encabezado
