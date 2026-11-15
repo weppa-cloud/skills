@@ -65,7 +65,7 @@ La etiqueta `appcell.app/recipe` identifica la receta, si existe; sus manifiesto
 |---|---|
 | Diagnosticar, ver logs, estado, eventos | `weppa_app_status`, `events_list`, `weppa_app_describe`, `resources_get`, `weppa_app_logs`; con «Operar», `pods_exec` de lectura, aun sin receta |
 | **Documentar una app** («documenta mi Odoo») | «Solo mirar»: `weppa_app_describe {app}`. Con «Operar», completa con `pods_exec`, sin leer valores de claves; exec no oculta su salida (`runbook-document-app`) |
-| Reiniciar, reparar, configurar, escalar dentro del cupo | «Operar», con o sin receta: investiga, repara y verifica dentro del encargo (`runbook-restart-app`, `resources_scale`). Confirma destrucción/cobro |
+| Reiniciar, reparar, configurar, escalar dentro del cupo | «Operar», con o sin receta: reinicia con `weppa_app_restart {app}` y `weppa_wait`, sin borrar pods; investiga, repara y verifica (`resources_scale`). Confirma destrucción/cobro |
 | **Pausar y reanudar** | Directo con «Operar»: `weppa_app_pause`, `weppa_app_resume` (`runbook-pause-resume`) |
 | **Bajar de tamaño una app** (Max → Pro → Lite) | Con «Operar»: `weppa_app_resize {app, size}`; niega si no cabe. Avisa antes: una app de agente se reinicia |
 | **Cambiar de versión una app** | «Operar»: conserva pares probados y copia previa (`runbook-upgrade-version`); sin par, investiga sin certificar. Salto mayor fuera de pares probados: destructivo, confirma el dueño; copia no sustituye |
@@ -186,7 +186,8 @@ ofrece n8n.
 - Topes (gratis · pagada): 3 · 20 automatizaciones, 2 · 10 con horario, cada 15 · 5 min o más,
   1.000 · 10.000 ejecuciones al mes, 30 · 300 s cada una. Los de su cuenta, en `automations-definition`.
 - Un Site (`trigger.site`): conéctalo siempre tú con `weppa_automations_connect {app, target: <sitio>, automation}`, sin el dueño;
-  declararlo no lo conecta. Otra app: deja el pedido y el dueño la conecta. Pausas y conexiones son
+  declararlo no lo conecta. Otra app: la conectas tú (`target`, o `all: true` para todas); el dueño
+  recibe un correo y la quita en Conexiones. Pausas y conexiones son
   gestionadas por el visor: el servidor no habilita escribir la etiqueta ni `automations-control`; para reanudar, dale
   `https://visor.weppa.co/ns/<app>/automations`.
   Clave de un servicio (Resend…): `weppa_app_secret_request`.
