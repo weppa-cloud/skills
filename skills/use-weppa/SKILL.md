@@ -76,7 +76,7 @@ La etiqueta `appcell.app/recipe` identifica la receta, si existe; sus manifiesto
 | **Cambiar el nombre de una app** | «Operar»: `weppa_app_rename {app, name}`, sin confirmar. Avisa: dirección vieja libre, sin redirección |
 | **Una clave que falta** (token de un proveedor, acceso a un registro) | `weppa_app_secret_generate` o `weppa_app_secret_request`; dueño pone valores. `weppa_app_secret_status` hasta `missing: []`. Sin valores en chat |
 | **Publicar un Weppa Site** | Con «Tu agente publica» publicas tú, sin mandarlo al visor; sin él, no escribas `expected_published_sha256`: publica el dueño |
-| **Crear una app** | Lab: `weppa_free_tier_create`, sin confirmar. Si no: arma el enlace del wizard (`https://visor.weppa.co/apps/new?recipe=<receta>&version=<versión>&name=<nombre>&size=<lite\|pro\|max>`, `rules` §11); la persona revisa y confirma. No instales una app nueva en un namespace existente |
+| **Crear una app** | Lab: `weppa_free_tier_create`; Site gratis: `weppa_site_create`; sin confirmar. Si no: arma el enlace del wizard (`https://visor.weppa.co/apps/new?recipe=<receta>&version=<versión>&name=<nombre>&size=<lite\|pro\|max>`, `rules` §11); la persona revisa y confirma. No instales una app nueva en un namespace existente |
 | **Restaurar una copia** | Confirma el dueño: `tipo: restore` con «Operar» (`runbook-restore`). Entrega enlace; no fuerces un rechazo del servidor |
 | **Duplicar una app** | Confirma el dueño. En el mismo mensaje del enlace de confirmación, avisa: la copia arranca con correos y tareas activos. `weppa_app_backup {app}` hasta `completed`/`protected`; después `tipo: duplicate`, `punto` vacío (`runbook-duplicate`), y enlace. `duplicate_needs_backup`: copia y reconfirmación del mismo pedido |
 | **Recuperar un sitio, «Usar esta copia»** | Los confirma el dueño en Weppa: reemplazan lo vivo. Dale el enlace y explícale qué cambia |
@@ -89,7 +89,7 @@ preparas tú y los ejecuta una persona en el visor; borrar y subir de tamaño lo
 pedido tuyo.
 
 **Una copia de una Odoo se neutraliza antes de usarla**: duplicada o restaurada, pásale
-`runbook-odoo-neutralize` enseguida. Si falta, investiga y neutraliza la copia dentro del cerco; la receta no es requisito.
+`runbook-odoo-neutralize` enseguida. Si falta, investiga y neutralízala dentro del cerco.
 
 **Un pedido no es un hecho.** Dale a la persona `visor.weppa.co/requests/<namespace>/<pedido>`;
 ella confirma y solo el visor escribe el `estado`: tú nunca lo cambias, no tocas pedidos ajenos ni
