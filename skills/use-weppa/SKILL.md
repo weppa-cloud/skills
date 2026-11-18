@@ -186,10 +186,9 @@ ofrece n8n.
 - Topes (gratis · pagada): 3 · 20 automatizaciones, 2 · 10 con horario, cada 15 · 5 min o más,
   1.000 · 10.000 ejecuciones al mes, 30 · 300 s cada una. Los de su cuenta, en `automations-definition`.
 - Un Site (`trigger.site`): conéctalo siempre tú con `weppa_automations_connect {app, target: <sitio>, automation}`, sin el dueño;
-  declararlo no lo conecta. Otra app: la conectas tú (`target`, o `all: true` para todas); el dueño
-  recibe un correo y la quita en Conexiones. Pausas y conexiones son
-  gestionadas por el visor: el servidor no habilita escribir la etiqueta ni `automations-control`; para reanudar, dale
-  `https://visor.weppa.co/ns/<app>/automations`.
+  declararlo no lo conecta; los campos de la fila llegan en `event.data.data`.
+  Otra app: la conectas tú (`target`, o `all: true` para todas); el dueño recibe un correo y la quita
+  en Conexiones; el servidor no habilita escribir la etiqueta ni `automations-control`; para reanudar, dale `https://visor.weppa.co/ns/<app>/automations`.
   Clave de un servicio (Resend…): `weppa_app_secret_request`.
 - Antes de decir que funciona: `weppa_automations_run` con `mode: sample` y `weppa_automations_runs`;
   si no cargó, `weppa_app_logs` dice `weppa.runtime.rejected`. Con horario, dile cada cuánto corre.
