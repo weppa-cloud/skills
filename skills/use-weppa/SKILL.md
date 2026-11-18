@@ -78,7 +78,7 @@ La etiqueta `appcell.app/recipe` identifica la receta, si existe; sus manifiesto
 | **Publicar un Weppa Site** | Con «Tu agente publica» publicas tú, sin mandarlo al visor; sin él, no escribas `expected_published_sha256`: publica el dueño |
 | **Crear una app** | Lab: `weppa_free_tier_create`; Site gratis: `weppa_site_create`; sin confirmar. Si no: arma el enlace del wizard (`https://visor.weppa.co/apps/new?recipe=<receta>&version=<versión>&name=<nombre>&size=<lite\|pro\|max>`, `rules` §11); la persona revisa y confirma. No instales una app nueva en un namespace existente |
 | **Restaurar una copia** | Confirma el dueño: `tipo: restore` con «Operar» (`runbook-restore`). Entrega enlace; no fuerces un rechazo del servidor |
-| **Duplicar una app** | Confirma el dueño. En el mismo mensaje del enlace de confirmación, avisa: la copia arranca con correos y tareas activos. `weppa_app_backup {app}` hasta `completed`/`protected`; después `tipo: duplicate`, `punto` vacío (`runbook-duplicate`), y enlace. `duplicate_needs_backup`: copia y reconfirmación del mismo pedido |
+| **Duplicar una app** | Confirma el dueño. Antes del enlace de confirmación, en ese mismo mensaje, avisa: la copia arranca encendida, con correos, webhooks y tareas activos. `weppa_app_backup {app}` hasta `completed`/`protected`; después `tipo: duplicate`, `punto` vacío (`runbook-duplicate`), y enlace. `duplicate_needs_backup`: copia y reconfirmación del mismo pedido |
 | **Recuperar un sitio, «Usar esta copia»** | Los confirma el dueño en Weppa: reemplazan lo vivo. Dale el enlace y explícale qué cambia |
 | **Borrar una app** | Lo dejas listo: el enlace completo `https://visor.weppa.co/ns/<app>/settings` solo en su línea; el dueño confirma en Eliminar (destruye app/datos). No es un hueco. No escribas un pedido `delete-app`: no existe |
 | **Subir de tamaño una app** | Confirma el dueño si cobra. `weppa_app_resize` con cobro queda `pending`; relee. No escribas un pedido `resize`: no existe |
@@ -150,7 +150,7 @@ En apps de agente, `pods_run` no fija `runtimeClassName`: usa `resources_create_
 con `runtimeClassName: gvisor`. gVisor cambia el procedimiento, no la promesa;
 investiga y repara sin quitarlo. helm no está disponible en `mcp.weppa.co`.
 Entre apps autorizadas de la misma cuenta puedes conectar, copiar configuración y usar
-claves por referencia. Si mover datos los destruye, confirma el dueño.
+claves por referencia.
 
 ## Errores y qué significan
 
