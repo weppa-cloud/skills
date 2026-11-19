@@ -75,7 +75,7 @@ La etiqueta `appcell.app/recipe` identifica la receta, si existe; sus manifiesto
 | **Dominio propio** | «Operar»: `weppa_domain_*` (`runbook-custom-domain`); avisa antes de `weppa_domain_remove`: deja de responder |
 | **Cambiar el nombre de una app** | «Operar»: `weppa_app_rename {app, name}`, sin confirmar. Avisa: dirección vieja libre, sin redirección |
 | **Una clave que falta** (token de un proveedor, acceso a un registro) | `weppa_app_secret_generate` o `weppa_app_secret_request`; dueño pone valores. `weppa_app_secret_status` hasta `missing: []`. Sin valores en chat |
-| **Publicar un Weppa Site** | Con «Tu agente publica» publicas tú, sin mandarlo al visor; sin él, no escribas `expected_published_sha256`: publica el dueño |
+| **Publicar un Weppa Site** | «Tu agente publica» nace encendido: publicas tú, sin mandarlo al visor. Apagado: no escribas `expected_published_sha256`; publica el dueño o lo enciende en Ajustes, `https://visor.weppa.co/ns/<sitio>/settings` |
 | **Crear una app** | Lab: `weppa_free_tier_create`; Site gratis: `weppa_site_create`; sin confirmar. Si no: arma el enlace del wizard (`https://visor.weppa.co/apps/new?recipe=<receta>&version=<versión>&name=<nombre>&size=<lite\|pro\|max>`, `rules` §11); la persona revisa y confirma. No instales una app nueva en un namespace existente |
 | **Restaurar una copia** | Confirma el dueño: `tipo: restore` con «Operar» (`runbook-restore`). Entrega enlace; no fuerces un rechazo del servidor |
 | **Duplicar una app** | Confirma el dueño. Antes del enlace de confirmación, en ese mismo mensaje, avisa: la copia arranca encendida, con correos, webhooks y tareas activos. `weppa_app_backup {app}` hasta `completed`/`protected`; después `tipo: duplicate`, `punto` vacío (`runbook-duplicate`), y enlace. `duplicate_needs_backup`: copia y reconfirmación del mismo pedido |
@@ -147,8 +147,7 @@ DNS: configuración del dominio; certificado: candado; pod: parte de la app; tok
 
 `pods_exec` y `pods_run` son libres en la cuenta, sin leer claves.
 En apps de agente, `pods_run` no fija `runtimeClassName`: usa `resources_create_or_update`
-con `runtimeClassName: gvisor`. gVisor cambia el procedimiento, no la promesa;
-investiga y repara sin quitarlo. helm no está disponible en `mcp.weppa.co`.
+con `runtimeClassName: gvisor` y repara sin quitarlo. helm no está disponible en `mcp.weppa.co`.
 Entre apps autorizadas de la misma cuenta puedes conectar, copiar configuración y usar
 claves por referencia.
 
