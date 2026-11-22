@@ -64,17 +64,18 @@ La etiqueta `appcell.app/recipe` identifica la receta, si existe; sus manifiesto
 | Quieres… | Cómo |
 |---|---|
 | Diagnosticar, ver logs, estado, eventos | `weppa_app_status`, `events_list`, `weppa_app_describe`, `resources_get`, `weppa_app_logs`; con «Operar», `pods_exec` de lectura, aun sin receta |
-| **Documentar una app** («documenta mi Odoo») | «Solo mirar»: `weppa_app_describe {app}`. Con «Operar», completa con `pods_exec`, sin leer valores de claves; exec no oculta su salida (`runbook-document-app`) |
+| **Documentar una app** | «Solo mirar»: `weppa_app_describe {app}`. Con «Operar», completa con `pods_exec`, sin leer valores de claves; exec no oculta su salida (`runbook-document-app`) |
 | Reiniciar, reparar, configurar, escalar dentro del cupo | «Operar», con o sin receta: reinicia con `weppa_app_restart {app}` y `weppa_wait`, sin borrar pods; investiga, repara y verifica (`resources_scale`). Confirma destrucción/cobro |
 | **Pausar y reanudar** | Directo con «Operar»: `weppa_app_pause`, `weppa_app_resume` (`runbook-pause-resume`) |
 | **Bajar de tamaño una app** (Max → Pro → Lite) | Con «Operar»: `weppa_app_resize {app, size}`; niega si no cabe. Avisa antes: una app de agente se reinicia |
 | **Cambiar de versión una app** | «Operar»: conserva pares probados y copia previa (`runbook-upgrade-version`); sin par, investiga sin certificar. Salto mayor fuera de pares probados: destructivo, confirma el dueño; copia no sustituye |
 | **Copia protegida a demanda** | «Operar»: da el aviso (`notice`), `weppa_app_backup {app, motivo?}` y `weppa_wait {app, request}` hasta `completed`/`protected`. Sin confirmar; una a la vez, tres/día (`runbook-request-backup`) |
 | Leer o sacar datos de la base | Con «Operar», cliente de base por `pods_exec`, en solo lectura sin imprimir claves. Exportar: `part-dump` o `part-export`; investigar no requiere receta |
-| **Darle al dueño sus datos para descargar** (la base y los archivos de ahora) | `weppa_app_download_link {app}` con «Operar»; si prepara, repite con `request`. URLs en líneas separadas, vencen en 24 h; compara sha256 (`runbook-download-backup`) |
+| **Darle al dueño sus datos para descargar** | `weppa_app_download_link {app}` con «Operar»; si prepara, repite con `request`. URLs en líneas separadas, vencen en 24 h; compara sha256 (`runbook-download-backup`) |
+| **Abrir la salida de una copia** | `weppa_app_copy_network`; reconectar usa la identidad original |
 | **Dominio propio** | «Operar»: `weppa_domain_*` (`runbook-custom-domain`); avisa antes de `weppa_domain_remove`: deja de responder |
 | **Cambiar el nombre de una app** | «Operar»: `weppa_app_rename {app, name}`, sin confirmar. Avisa: dirección vieja libre, sin redirección |
-| **Una clave que falta** (token de un proveedor, acceso a un registro) | `weppa_app_secret_generate` o `weppa_app_secret_request`; dueño pone valores. `weppa_app_secret_status` hasta `missing: []`. Sin valores en chat |
+| **Una clave que falta** | `weppa_app_secret_generate` o `weppa_app_secret_request`; dueño pone valores. `weppa_app_secret_status` hasta `missing: []`. Sin valores en chat |
 | **Publicar un Weppa Site** | «Tu agente publica» nace encendido: publicas tú, sin mandarlo al visor. Apagado: no escribas `expected_published_sha256`; publica el dueño o lo enciende en Ajustes, `https://visor.weppa.co/ns/<sitio>/settings` |
 | **Crear una app** | Lab: `weppa_free_tier_create`; Site gratis: `weppa_site_create`; sin confirmar. Si no: arma el enlace del wizard (`https://visor.weppa.co/apps/new?recipe=<receta>&version=<versión>&name=<nombre>&size=<lite\|pro\|max>`, `rules` §11); la persona revisa y confirma. No instales una app nueva en un namespace existente |
 | **Restaurar una copia** | Confirma el dueño: `tipo: restore` con «Operar» (`runbook-restore`). Entrega enlace; no fuerces un rechazo del servidor |
