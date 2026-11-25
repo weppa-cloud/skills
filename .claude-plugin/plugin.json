@@ -1,7 +1,7 @@
 {
   "name": "weppa",
   "displayName": "Weppa",
-  "version": "0.3.16",
+  "version": "0.3.17",
   "description": "Opera las apps de tu cuenta de Weppa desde tu agente: estado, logs, reinicios, copias y dominio, por el MCP de Weppa.",
   "author": {
     "name": "Weppa",
@@ -26,7 +26,7 @@
   "metadata": {
     "skills": {
       "use-weppa": {
-        "digest": "sha256:75ab404c0912becba1287223c0b75be39d61e47d9f95982ef761c4fd900bdab1"
+        "digest": "sha256:256f9442bf68a9facf1989c2f1aa890ba0fcb28ed27e1bbe2076faef9cf03144"
       }
     }
   }
